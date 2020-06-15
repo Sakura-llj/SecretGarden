@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/info_CET"
+        android:title="@string/set_cet"
+        android:visible="true"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/info_IELTS"
+        android:title="@string/set_ielts"
+        android:visible="true"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/info_NCRE"
+        android:title="@string/set_ncre"
+        android:visible="true"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/info_JWC"
+        android:title="@string/set_jwc"
+        android:visible="true"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/info_IT"
+        android:title="@string/set_it"
+        android:visible="true"
+        app:showAsAction="never" />
+</menu>

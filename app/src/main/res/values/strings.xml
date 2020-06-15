@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">SecretGarden</string>
+    <string name="btn_live">Live</string>
+    <string name="btn_study">Study</string>
+    <string name="btn_play">Play</string>
+    <string name="title_bmi">Calculate BMI</string>
+    <string name="hint_height">Input height(M)</string>
+    <string name="hint_weight">Input weight(KG)</string>
+    <string name="btn_calcu">Calculate BMI</string>
+    <string name="show_bmi">Your BMI</string>
+    <string name="title_bsd">BMI standard</string>
+    <string name="cs">China</string>
+    <string name="its">International</string>
+    <string name="sex">Sex</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="result">Result</string>
+    <string name="btnSearch">Search</string>
+    <string name="hint_search">Please input keywords</string>
+    <string name="info_cet">CET</string>
+    <string name="info_ielts">IELTS</string>
+    <string name="info_ncre">NCRE</string>
+    <string name="info_jwc">教务处</string>
+    <string name="info_it">经济信息工程学院</string>
+    <string name="info_menu">More info</string>
+
+</resources>
