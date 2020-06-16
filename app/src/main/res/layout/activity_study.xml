@@ -13,56 +13,62 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
         android:paddingLeft="10dp"
         android:paddingRight="10dp">
-
-        <Button
-            android:id="@+id/btn_Search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:gravity="center"
-            android:text="@string/btnSearch"
-            android:textSize="12sp"
-            android:textStyle="bold" />
-
         <RelativeLayout
             android:id="@+id/search_edit_frame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/btn_Search"
             android:gravity="center_vertical">
 
             <EditText
-                android:id="@+id/ed_Search"
-                android:layout_width="wrap_content"
+                android:id="@+id/et_Search"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
                 android:layout_marginEnd="10dp"
                 android:paddingLeft="32dp"
+                android:paddingStart="32dp"
                 android:background="@mipmap/search"
                 android:ems="10"
                 android:hint="@string/hint_search"
                 android:inputType="textPersonName"
                 android:textSize="12sp"
-                android:singleLine="true" />
+                android:singleLine="true"
+                tools:ignore="RtlSymmetry" />
 
             <ImageView
+                android:id="@+id/ivDeleteText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingRight="20dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginEnd="25dp"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerInParent="true"
                 android:src="@drawable/delete" />
 
         </RelativeLayout>
 
+
+
     </RelativeLayout>
 
     <ListView
+        android:id="@+id/noticeList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/top" />
+    <TextView
+        android:id="@+id/nodata"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/noticeList"
+        android:gravity="center"
+        android:text="@string/nodata"/>
+
 </RelativeLayout>

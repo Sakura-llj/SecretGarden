@@ -23,5 +23,7 @@
     <string name="info_jwc">教务处</string>
     <string name="info_it">经济信息工程学院</string>
     <string name="info_menu">More info</string>
+    <string name="nodata">No Data</string>
+    <string name="time">2020-02-02</string>
 
 </resources>

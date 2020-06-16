@@ -29,10 +29,12 @@ public class MainActivity extends AppCompatActivity {
         Log.i(TAG,"onClick btn_study...");
         //打开StudyActivity
         Intent study = new Intent(this,StudyActivity.class);
+        startActivity(study);
     }
     public void openplay(View btn){
         Log.i(TAG,"onClick btn_play...");
         //打开PlayActivity
         Intent play = new Intent(this,PlayActivity.class);
+        startActivity(play);
     }
 }
