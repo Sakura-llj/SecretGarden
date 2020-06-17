@@ -15,10 +15,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -29,17 +31,20 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.LongSummaryStatistics;
 import java.util.Objects;
 
-public class StudyActivity extends AppCompatActivity implements Runnable{
-
+public class StudyActivity extends AppCompatActivity implements Runnable, View.OnClickListener {
     private String TAG = "study";
-    List<HashMap<String, String>> listItems = new ArrayList<HashMap<String, String>>();
     SimpleAdapter listItemAdapter;
     Handler handler;
     ListView listView;
     ImageView ivDeleteText;
     EditText et_Search;
+    List<HashMap<String, String>> listItems = new ArrayList<HashMap<String, String>>();
+    private String et;
+    private String values;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +54,7 @@ public class StudyActivity extends AppCompatActivity implements Runnable{
         ivDeleteText = findViewById(R.id.ivDeleteText);
         et_Search = findViewById(R.id.et_Search);
         listView = findViewById(R.id.noticeList);
+        Button btn = findViewById(R.id.btn_search);
 
         //点叉全删功能
         ivDeleteText.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +69,7 @@ public class StudyActivity extends AppCompatActivity implements Runnable{
 
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
             }
 
             @Override
@@ -78,10 +85,9 @@ public class StudyActivity extends AppCompatActivity implements Runnable{
                 }
             }
         });
-
-        initListView();
-        listView.setAdapter(listItemAdapter);
+        btn.setOnClickListener(this);
         listView.setEmptyView(findViewById(R.id.nodata));
+        listView.setAdapter(listItemAdapter);
 
         //开启子线程
         Thread t= new Thread(this);
@@ -92,17 +98,30 @@ public class StudyActivity extends AppCompatActivity implements Runnable{
             public void handleMessage(@NonNull Message msg) {
                 if (msg.what==5){
                     listItems = (List<HashMap<String, String>>) msg.obj;
-                    listItemAdapter = new SimpleAdapter(StudyActivity.this, listItems,//数据源
-                            R.layout.list_item,
-                            new String[] { "showTitle","showTime"},//数据项key
-                            new int[] {R.id.showtitle,R.id.showtime});//控件
-                    listView.setAdapter(listItemAdapter);
+                    listView.setEmptyView(findViewById(R.id.nodata));
+                    for (HashMap<String, String> m : listItems) {
+                        for (String key : m.keySet()) {
+                            values = m.get(key);
+                            //Log.i("Hashmap","key=" + key + " values=" + values);
+                            if (values.contains(et)){
+                                Log.i("keywords","包含输入关键字" + values);
+                                HashMap<String,String> mapkey = new HashMap<String, String>();
+                                mapkey.put("showTitle",values);
+                                mapkey.put("showTime",values);
+                                listItems.add(mapkey);
+                                listItemAdapter = new SimpleAdapter(StudyActivity.this, listItems, R.layout.list_item,
+                                        new String[] {"showTitle","showTime"},new int[] {R.id.showtitle,R.id.showtime});//控件
+                                listView.setAdapter(listItemAdapter);
+                            }
+                        }
+                    }
                 }
                 super.handleMessage(msg);
             }
         };
 
     }
+
 
     //More info菜单
     @Override
@@ -136,7 +155,7 @@ public class StudyActivity extends AppCompatActivity implements Runnable{
             HashMap<String,String> map = new HashMap<String, String>();
             map.put("showTitle","Title: " + i);
             map.put("showTime","time" + i);
-            listItems.add(map);//布局文件的控件id和放map时的key可以不同
+            listItems.add(map);
         }
         //生成适配器的Item和动态数组相对应的元素
         listItemAdapter = new SimpleAdapter(this, listItems, R.layout.list_item,
@@ -173,17 +192,23 @@ public class StudyActivity extends AppCompatActivity implements Runnable{
                 map.put("showTitle",strTitle);
                 map.put("showTime",strTime);
                 retList.add(map);
+
             }
-        } catch (IOException e) {
+        } catch (IOException  e) {
             e.printStackTrace();
         }
-
-
 
         //获取msg对象，发送给handler
         Message msg = handler.obtainMessage(5);
         msg.obj = retList;
         handler.sendMessage(msg);
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        Log.i("btn_search","search...");
+        et = et_Search.getText().toString();
+        listView.setAdapter(listItemAdapter);
     }
 }

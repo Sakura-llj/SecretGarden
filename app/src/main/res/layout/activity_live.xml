@@ -12,12 +12,14 @@
         android:id="@+id/title_bmi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/title_bmi" />
+        android:text="@string/title_bmi"
+        android:textSize="32dp"/>
 
     <EditText
         android:id="@+id/edit_height"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="@string/hint_height"
         android:inputType="numberDecimal" />
@@ -26,6 +28,7 @@
         android:id="@+id/edit_weight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="@string/hint_weight"
         android:inputType="numberDecimal" />
@@ -34,6 +37,7 @@
         android:id="@+id/btn_calcu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="@string/btn_calcu"
         android:onClick="calbmi"/>
 
@@ -41,12 +45,15 @@
         android:id="@+id/show_bmi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         android:text="@string/show_bmi"
+        android:textSize="25sp"
         android:gravity="center"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         android:orientation="horizontal">
 
         <TextView
@@ -54,7 +61,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/title_bsd" />
+            android:text="@string/title_bsd"
+            android:textSize="18sp"/>
 
         <RadioGroup
             android:id="@+id/Groupstd"
@@ -68,14 +76,16 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/cs" />
+                android:text="@string/cs"
+                android:textSize="18sp"/>
 
             <RadioButton
                 android:id="@+id/itstd"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/its" />
+                android:layout_weight="1.2"
+                android:text="@string/its"
+                android:textSize="18sp"/>
         </RadioGroup>
 
     </LinearLayout>
@@ -86,7 +96,9 @@
         android:id="@+id/result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         android:text="@string/result"
+        android:textSize="25sp"
         android:gravity="center"/>
 
 </LinearLayout>

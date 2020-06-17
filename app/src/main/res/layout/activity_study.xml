@@ -16,11 +16,22 @@
         android:layout_centerVertical="true"
         android:paddingLeft="10dp"
         android:paddingRight="10dp">
-        <RelativeLayout
-            android:id="@+id/search_edit_frame"
+
+        <Button
+            android:id="@+id/btn_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:text="@string/btnSearch"
+            android:textSize="12sp" />
+
+        <RelativeLayout
+            android:id="@+id/search_edit_frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/btn_search"
             android:gravity="center_vertical">
 
             <EditText
@@ -34,7 +45,7 @@
                 android:background="@mipmap/search"
                 android:ems="10"
                 android:hint="@string/hint_search"
-                android:inputType="textPersonName"
+                android:inputType="text"
                 android:textSize="12sp"
                 android:singleLine="true"
                 tools:ignore="RtlSymmetry" />

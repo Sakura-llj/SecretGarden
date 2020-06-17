@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">秘密花园</string>
+    <string name="btn_live">生活</string>
+    <string name="btn_study">学习</string>
+    <string name="btn_play">娱乐</string>
+    <string name="title_bmi">计算 BMI</string>
+    <string name="hint_height">请输入身高（米）</string>
+    <string name="hint_weight">请输入体重（千克）</string>
+    <string name="btn_calcu">BMI</string>
+    <string name="show_bmi">您的BMI</string>
+    <string name="title_bsd">BMI标准</string>
+    <string name="cs">国内</string>
+    <string name="its">国际</string>
+    <string name="sex">性别</string>
+    <string name="male">男</string>
+    <string name="female">女</string>
+    <string name="result">结果是</string>
+    <string name="btnSearch">搜索</string>
+    <string name="hint_search">请输入关键字</string>
+    <string name="info_cet">四六级</string>
+    <string name="info_ielts">雅思</string>
+    <string name="info_ncre">计算机</string>
+    <string name="nodata">没有结果</string>
+</resources>
